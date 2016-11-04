@@ -1,0 +1,4 @@
+target 'XVRDemo' do
+pod 'CardboardSDK'
+end
+

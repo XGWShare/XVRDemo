@@ -64,7 +64,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ym-uC-0iw" customClass="VideoView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ym-uC-0iw">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZT-Ws-YC0">
@@ -100,9 +100,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="kdX-LO-mlp"/>
                     <connections>
+                        <outlet property="Playframe" destination="3ym-uC-0iw" id="aJz-7H-PmB"/>
                         <outlet property="URLSwitch" destination="0k1-dv-ePq" id="DFS-vd-7Tl"/>
                         <outlet property="URLText" destination="Le7-RW-5Wu" id="DDC-R7-7Dy"/>
-                        <outlet property="VRPlayerView" destination="3ym-uC-0iw" id="hkC-76-bpE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

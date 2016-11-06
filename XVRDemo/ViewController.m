@@ -10,34 +10,41 @@
 #import "VideoView.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet VideoView *VRPlayerView;
+@property (weak, nonatomic) IBOutlet UIView *Playframe;
 @property (weak, nonatomic) IBOutlet UITextField *URLText;
 @property (weak, nonatomic) IBOutlet UISwitch *URLSwitch;
 @end
 
 @implementation ViewController{
-    BOOL _isPaused;
+    VideoView *VRVideoView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)ChangedURLSwitch:(UISwitch *)sender {
-    
-    [_VRPlayerView ChangedURLSwitch:sender URL:_URLText];
+- (void)viewDidAppear:(BOOL)animated{
+    //初始化播放器
+    CGRect frame = CGRectMake(0, 0, self.Playframe.frame.size.width, self.Playframe.frame.size.height);
+    VRVideoView = [VideoView videoPlayView];
+    [VRVideoView setFrame:frame];
+    [self.Playframe addSubview:VRVideoView];
     
 }
 
-- (void)dealloc{
-    [_VRPlayerView stop];
+- (void)viewDidDisappear:(BOOL)animated{
+    [VRVideoView stop];
+}
+
+- (IBAction)ChangedURLSwitch:(UISwitch *)sender {
+    
+    [VRVideoView ChangedURLSwitch:sender URL:_URLText];
+    
 }
 
 @end

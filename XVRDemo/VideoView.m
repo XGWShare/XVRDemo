@@ -7,9 +7,10 @@
 //
 
 #import "VideoView.h"
+#import "GCSVideoView.h"
 
 @interface VideoView ()<GCSVideoViewDelegate>
-
+@property (weak, nonatomic) IBOutlet GCSVideoView *ViewPlay;
 @end
 
 @implementation VideoView{
@@ -17,25 +18,17 @@
 }
 
 /**
- 自动初始化播放器
+ 快速创建View的方法
  */
-- (void)awakeFromNib{
-    [super awakeFromNib];
-    
-    [self initWithVideo];
-}
-
-/**
- 手动初始化播放器
- */
-- (id)initWithFrame:(CGRect)frame{
-    
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self initWithVideo];
-    }
-    return self;
-    
++ (instancetype)videoPlayView
+{
+    static VideoView *ManagerInstance = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        ManagerInstance = [[[NSBundle mainBundle] loadNibNamed:@"VideoView" owner:nil options:nil] firstObject];
+        [ManagerInstance initWithVideo];
+    });
+    return ManagerInstance;
 }
 
 /**
@@ -43,9 +36,9 @@
 */
 - (void)initWithVideo{
     _isPaused = NO;
-    self.delegate = self;
-    self.enableCardboardButton = YES;
-    self.enableFullscreenButton = YES;
+    _ViewPlay.delegate = self;
+    _ViewPlay.enableCardboardButton = YES;
+    _ViewPlay.enableFullscreenButton = YES;
     //[self loadFromUrl:[NSURL   URLWithString:@"http://120.25.246.21/vrMobile/travelVideo/zhejiang_xuanchuanpian.mp4"]];
 }
 
@@ -54,7 +47,7 @@
 -(void)videoView:(GCSVideoView *)videoView didUpdatePosition:(NSTimeInterval)position{
     
     if (position == videoView.duration) {
-        [self seekTo:0];
+        [_ViewPlay seekTo:0];
     }
 }
 
@@ -62,9 +55,9 @@
 
 -(void)widgetViewDidTap:(GCSWidgetView *)widgetView{
     if (_isPaused) {
-        [self resume];
+        [_ViewPlay resume];
     }else{
-        [self pause];
+        [_ViewPlay pause];
     }
     _isPaused = !_isPaused;
 }
@@ -79,32 +72,28 @@
 
 #pragma mark - 播放控制
 
-/**
- 用UISwitch设置url
- */
-- (void)ChangedURLSwitch:(UISwitch *)sender URL:(UITextField *)URLTextField{
+-(void)ChangedURLSwitch:(UISwitch *)sender URL:(UITextField *)URLTextField{
     
     if (sender.on) {
         if ([URLTextField.text length] <= 0) {
             sender.on = NO;
         }else{
             [URLTextField setEnabled:NO];
-            [self loadFromUrl:[NSURL   URLWithString:URLTextField.text]];
+            [_ViewPlay loadFromUrl:[NSURL   URLWithString:URLTextField.text]];
         }
     }else{
         [URLTextField setEnabled:YES];
-        [self stop];
+        [_ViewPlay stop];
     }
     
 }
 
-/**
- 旋转屏幕
- */
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskAll;
+- (void)stop{
+    [_ViewPlay stop];
 }
 
+- (void)pause{
+    [_ViewPlay pause];
+}
 
 @end

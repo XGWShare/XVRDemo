@@ -6,10 +6,14 @@
 //  Copyright © 2016年 Wei. All rights reserved.
 //
 
-#import "GCSVideoView.h"
+#import <UIKit/UIKit.h>
 
-@interface VideoView : GCSVideoView
+@interface VideoView : UIView
+
++ (instancetype)videoPlayView;
 
 - (void)ChangedURLSwitch:(UISwitch *)sender URL:(UITextField *)URLTextField;
 
+- (void)stop;
+- (void)pause;
 @end

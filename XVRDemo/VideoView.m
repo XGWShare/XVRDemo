@@ -7,10 +7,15 @@
 //
 
 #import "VideoView.h"
-#import "GCSVideoView.h"
+#import "Utils.h"
 
 @interface VideoView ()<GCSVideoViewDelegate>
-@property (weak, nonatomic) IBOutlet GCSVideoView *ViewPlay;
+
+@property (weak, nonatomic) IBOutlet UIView *playBar;
+@property (weak, nonatomic) IBOutlet UIButton *playStartorPause;
+@property (weak, nonatomic) IBOutlet UIButton *playStop;
+@property (weak, nonatomic) IBOutlet UISlider *playProgress;
+@property (weak, nonatomic) IBOutlet UILabel *playTime;
 @end
 
 @implementation VideoView{
@@ -36,10 +41,10 @@
 */
 - (void)initWithVideo{
     _isPaused = NO;
-    _ViewPlay.delegate = self;
-    _ViewPlay.enableCardboardButton = YES;
-    _ViewPlay.enableFullscreenButton = YES;
-    //[self loadFromUrl:[NSURL   URLWithString:@"http://120.25.246.21/vrMobile/travelVideo/zhejiang_xuanchuanpian.mp4"]];
+    self.delegate = self;
+    self.enableCardboardButton = YES;
+    self.enableFullscreenButton = YES;
+    //@"http://120.25.246.21/vrMobile/travelVideo/zhejiang_xuanchuanpian.mp4"
 }
 
 #pragma mark - GCSWidgetViewDelegate
@@ -47,19 +52,22 @@
 -(void)videoView:(GCSVideoView *)videoView didUpdatePosition:(NSTimeInterval)position{
     
     if (position == videoView.duration) {
-        [_ViewPlay seekTo:0];
+        //播放结束
+        [self seekTo:0];
+        _playStartorPause.selected = NO;
     }
+    //实时进度
+    [_playProgress setValue:position];
+    [_playTime setText:[NSString stringWithFormat:@"%@/%@",
+                        [Utils TimeformatFromSeconds:position],
+                        [Utils TimeformatFromSeconds:videoView.duration]]
+     ];
 }
 
 #pragma mark - GCSVideoViewDelegate
 
 -(void)widgetViewDidTap:(GCSWidgetView *)widgetView{
-    if (_isPaused) {
-        [_ViewPlay resume];
-    }else{
-        [_ViewPlay pause];
-    }
-    _isPaused = !_isPaused;
+    _playBar.hidden = !_playBar.hidden;
 }
 
 -(void)widgetView:(GCSWidgetView *)widgetView didFailToLoadContent:(id)content withErrorMessage:(NSString *)errorMessage{
@@ -67,33 +75,61 @@
 }
 
 - (void)widgetView:(GCSWidgetView *)widgetView didLoadContent:(id)content{
-    NSLog(@"连接成功url:%@",content);
+    NSLog(@"连接成功url");
+    //设置进度条
+    _playProgress.minimumValue = 0;
+    _playProgress.maximumValue = self.duration;
+    //播放按钮
+    _playStartorPause.selected = YES;
 }
 
-#pragma mark - 播放控制
+#pragma mark - PlayControl
 
+/**
+ 选择url
+ */
 -(void)ChangedURLSwitch:(UISwitch *)sender URL:(UITextField *)URLTextField{
     
     if (sender.on) {
         if ([URLTextField.text length] <= 0) {
             sender.on = NO;
-        }else{
-            [URLTextField setEnabled:NO];
-            [_ViewPlay loadFromUrl:[NSURL   URLWithString:URLTextField.text]];
         }
-    }else{
+        else{
+            [URLTextField setEnabled:NO];
+            [self loadFromUrl:[NSURL URLWithString:URLTextField.text]];
+        }
+    }
+    else{
         [URLTextField setEnabled:YES];
-        [_ViewPlay stop];
+        [self stop];
     }
     
 }
 
-- (void)stop{
-    [_ViewPlay stop];
+/**
+ 进度条
+ */
+- (IBAction)valueChanged:(UISlider *)sender {
+    [self seekTo:sender.value];
 }
 
-- (void)pause{
-    [_ViewPlay pause];
+/**
+ 停止
+ */
+- (IBAction)stop:(UIButton *)sender{
+    [self stop];
+}
+
+/**
+ 播放与暂停
+ */
+- (IBAction)pause:(UIButton *)sender{
+    sender.selected = !sender.selected;
+    if (!sender.selected) {
+        [self pause];
+    }else{
+        [self resume];
+    }
 }
 
 @end

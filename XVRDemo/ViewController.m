@@ -38,13 +38,17 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
-    [VRVideoView stop];
+
 }
 
 - (IBAction)ChangedURLSwitch:(UISwitch *)sender {
     
     [VRVideoView ChangedURLSwitch:sender URL:_URLText];
     
+}
+
+- (void)dealloc{
+    NSLog(@"dealloc");
 }
 
 @end

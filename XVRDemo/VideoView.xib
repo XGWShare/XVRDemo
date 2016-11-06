@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,22 +14,82 @@
             <rect key="frame" x="0.0" y="0.0" width="344" height="139"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFK-XG-LZM" customClass="GCSVideoView">
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIj-VX-y4t">
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ap9-Mh-nmq">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="JWv-fe-abP"/>
+                                <constraint firstAttribute="width" constant="45" id="piP-Mf-bBN"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="播放"/>
+                            <state key="selected" title="暂停">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="pause:" destination="8xe-c3-MCi" eventType="touchUpInside" id="4Mk-Vn-Ewe"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nA8-j3-PKW">
+                            <constraints>
+                                <constraint firstAttribute="width" constant="45" id="PYz-Sq-KeX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="停止">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="stop:" destination="8xe-c3-MCi" eventType="touchUpInside" id="kd1-Ny-MBm"/>
+                            </connections>
+                        </button>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="QLq-sM-HV5">
+                            <constraints>
+                                <constraint firstAttribute="width" constant="148" id="aDT-6R-jTa"/>
+                            </constraints>
+                            <connections>
+                                <action selector="valueChanged:" destination="8xe-c3-MCi" eventType="touchUpInside" id="wGH-JC-Joi"/>
+                            </connections>
+                        </slider>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00/00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kB-TD-0ow">
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="QLq-sM-HV5" firstAttribute="top" secondItem="ZIj-VX-y4t" secondAttribute="top" constant="2" id="Be4-of-4Pi"/>
+                        <constraint firstAttribute="bottom" secondItem="Ap9-Mh-nmq" secondAttribute="bottom" constant="3" id="Izz-ez-sEw"/>
+                        <constraint firstItem="nA8-j3-PKW" firstAttribute="baseline" secondItem="Ap9-Mh-nmq" secondAttribute="firstBaseline" id="Lf6-nW-hax"/>
+                        <constraint firstItem="Ap9-Mh-nmq" firstAttribute="top" secondItem="ZIj-VX-y4t" secondAttribute="top" constant="2" id="UUZ-ej-6X7"/>
+                        <constraint firstItem="nA8-j3-PKW" firstAttribute="firstBaseline" secondItem="Ap9-Mh-nmq" secondAttribute="baseline" id="Vhk-GY-h6U"/>
+                        <constraint firstItem="Ap9-Mh-nmq" firstAttribute="leading" secondItem="ZIj-VX-y4t" secondAttribute="leading" id="W4O-B6-d9f"/>
+                        <constraint firstItem="QLq-sM-HV5" firstAttribute="leading" secondItem="nA8-j3-PKW" secondAttribute="trailing" constant="8" symbolic="YES" id="YnY-wx-bRi"/>
+                        <constraint firstItem="nA8-j3-PKW" firstAttribute="top" secondItem="QLq-sM-HV5" secondAttribute="top" id="bYd-sH-J7U"/>
+                        <constraint firstItem="2kB-TD-0ow" firstAttribute="leading" secondItem="QLq-sM-HV5" secondAttribute="trailing" constant="8" symbolic="YES" id="bcn-vx-2a3"/>
+                        <constraint firstItem="nA8-j3-PKW" firstAttribute="centerY" secondItem="2kB-TD-0ow" secondAttribute="centerY" id="db2-wM-vhX"/>
+                        <constraint firstItem="nA8-j3-PKW" firstAttribute="top" secondItem="Ap9-Mh-nmq" secondAttribute="top" id="jAA-nD-K40"/>
+                        <constraint firstAttribute="bottom" secondItem="QLq-sM-HV5" secondAttribute="bottom" constant="3" id="mFZ-Y9-r3H"/>
+                        <constraint firstItem="nA8-j3-PKW" firstAttribute="leading" secondItem="Ap9-Mh-nmq" secondAttribute="trailing" constant="8" id="t6L-ZO-W6P"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="UFK-XG-LZM" secondAttribute="trailing" id="JZH-o1-bag"/>
-                <constraint firstItem="UFK-XG-LZM" firstAttribute="top" secondItem="8xe-c3-MCi" secondAttribute="top" id="i8f-mZ-PhP"/>
-                <constraint firstAttribute="bottom" secondItem="UFK-XG-LZM" secondAttribute="bottom" id="qfu-yI-0Ph"/>
-                <constraint firstItem="UFK-XG-LZM" firstAttribute="leading" secondItem="8xe-c3-MCi" secondAttribute="leading" id="rvs-Ah-u9k"/>
+                <constraint firstAttribute="trailing" secondItem="ZIj-VX-y4t" secondAttribute="trailing" id="2EO-Pp-BZR"/>
+                <constraint firstItem="ZIj-VX-y4t" firstAttribute="leading" secondItem="8xe-c3-MCi" secondAttribute="leading" id="6Zs-Fa-Qt8"/>
+                <constraint firstItem="ZIj-VX-y4t" firstAttribute="top" secondItem="8xe-c3-MCi" secondAttribute="top" id="RZt-FS-npa"/>
+                <constraint firstAttribute="bottom" secondItem="ZIj-VX-y4t" secondAttribute="bottom" constant="104" id="iwb-EE-O38"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="ViewPlay" destination="UFK-XG-LZM" id="VdH-wp-2XJ"/>
+                <outlet property="playBar" destination="ZIj-VX-y4t" id="aMC-6I-NVE"/>
+                <outlet property="playProgress" destination="QLq-sM-HV5" id="u9b-A7-wMd"/>
+                <outlet property="playStartorPause" destination="Ap9-Mh-nmq" id="Aba-6W-QSf"/>
+                <outlet property="playStop" destination="nA8-j3-PKW" id="1mP-xq-eN0"/>
+                <outlet property="playTime" destination="2kB-TD-0ow" id="ccS-cI-9a9"/>
             </connections>
-            <point key="canvasLocation" x="-260" y="-365"/>
+            <point key="canvasLocation" x="-260" y="-365.5"/>
         </view>
     </objects>
 </document>

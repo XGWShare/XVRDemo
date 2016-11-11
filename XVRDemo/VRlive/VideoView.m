@@ -33,6 +33,7 @@
         ManagerInstance = [[[NSBundle mainBundle] loadNibNamed:@"VideoView" owner:nil options:nil] firstObject];
         [ManagerInstance initWithVideo];
     });
+
     return ManagerInstance;
 }
 

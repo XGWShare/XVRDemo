@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4683D6B9DB4F8CB6038AAC66 /* libPods-XVRDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6EB47A63BC19FC7A697A15 /* libPods-XVRDemo.a */; };
-		F51379161DC5D013009A91F0 /* VideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F51379151DC5D013009A91F0 /* VideoView.m */; };
-		F5316C611DCF1E5D00AC9E6B /* VideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5316C601DCF1E5D00AC9E6B /* VideoView.xib */; };
+		F5157DED1DD5A374003FEAF2 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5157DEC1DD5A374003FEAF2 /* IJKMediaFramework.framework */; };
+		F5157E0B1DD5AFF1003FEAF2 /* VideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5157E091DD5AFF1003FEAF2 /* VideoView.m */; };
+		F5157E0C1DD5AFF1003FEAF2 /* VideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5157E0A1DD5AFF1003FEAF2 /* VideoView.xib */; };
+		F5157E0F1DD5C554003FEAF2 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5157E0E1DD5C554003FEAF2 /* PlayerViewController.m */; };
 		F5A0EAAE1DBE17540075B80E /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = F5A0EAAD1DBE17540075B80E /* podfile */; };
 		F5A0EAB01DBE175B0075B80E /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = F5A0EAAF1DBE175B0075B80E /* podfile */; };
 		F5A0EAB71DBE1DF40075B80E /* PlayControlBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A0EAB61DBE1DF40075B80E /* PlayControlBar.m */; };
@@ -46,9 +48,12 @@
 		4C6EB47A63BC19FC7A697A15 /* libPods-XVRDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XVRDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99A0A17F30759431655E80CC /* Pods-XVRDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XVRDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XVRDemo/Pods-XVRDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B1B17A95418BDB76F8B22E80 /* Pods-XVRDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XVRDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XVRDemo/Pods-XVRDemo.release.xcconfig"; sourceTree = "<group>"; };
-		F51379141DC5D013009A91F0 /* VideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoView.h; sourceTree = "<group>"; };
-		F51379151DC5D013009A91F0 /* VideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoView.m; sourceTree = "<group>"; };
-		F5316C601DCF1E5D00AC9E6B /* VideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoView.xib; sourceTree = "<group>"; };
+		F5157DEC1DD5A374003FEAF2 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IJKMediaFramework.framework; path = XVRDemo/Frameworks/IJKMediaFramework.framework; sourceTree = "<group>"; };
+		F5157E081DD5AFF1003FEAF2 /* VideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoView.h; sourceTree = "<group>"; };
+		F5157E091DD5AFF1003FEAF2 /* VideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoView.m; sourceTree = "<group>"; };
+		F5157E0A1DD5AFF1003FEAF2 /* VideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoView.xib; sourceTree = "<group>"; };
+		F5157E0D1DD5C554003FEAF2 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		F5157E0E1DD5C554003FEAF2 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		F5A0EAAD1DBE17540075B80E /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; };
 		F5A0EAAF1DBE175B0075B80E /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; };
 		F5A0EAB51DBE1DF40075B80E /* PlayControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayControlBar.h; sourceTree = "<group>"; };
@@ -81,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4683D6B9DB4F8CB6038AAC66 /* libPods-XVRDemo.a in Frameworks */,
+				F5157DED1DD5A374003FEAF2 /* IJKMediaFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,25 +119,39 @@
 		7EFCD6190CEC8392FAB05B11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5157DEC1DD5A374003FEAF2 /* IJKMediaFramework.framework */,
 				F5A0EAAD1DBE17540075B80E /* podfile */,
 				4C6EB47A63BC19FC7A697A15 /* libPods-XVRDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F5316C5F1DCF1DD400AC9E6B /* XVideoplayView */ = {
+		F5157DEE1DD5A3DB003FEAF2 /* Live */ = {
 			isa = PBXGroup;
 			children = (
-				F51379141DC5D013009A91F0 /* VideoView.h */,
-				F51379151DC5D013009A91F0 /* VideoView.m */,
-				F5316C601DCF1E5D00AC9E6B /* VideoView.xib */,
+				F5157E0D1DD5C554003FEAF2 /* PlayerViewController.h */,
+				F5157E0E1DD5C554003FEAF2 /* PlayerViewController.m */,
 			);
-			name = XVideoplayView;
+			name = Live;
+			path = XVRDemo/Live;
+			sourceTree = "<group>";
+		};
+		F5157E071DD5AFF1003FEAF2 /* VRlive */ = {
+			isa = PBXGroup;
+			children = (
+				F5157E081DD5AFF1003FEAF2 /* VideoView.h */,
+				F5157E091DD5AFF1003FEAF2 /* VideoView.m */,
+				F5157E0A1DD5AFF1003FEAF2 /* VideoView.xib */,
+			);
+			name = VRlive;
+			path = XVRDemo/VRlive;
 			sourceTree = "<group>";
 		};
 		F5A0EAB11DBE17A60075B80E /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F5157E071DD5AFF1003FEAF2 /* VRlive */,
+				F5157DEE1DD5A3DB003FEAF2 /* Live */,
 			);
 			name = MainViewController;
 			path = ..;
@@ -140,7 +160,6 @@
 		F5A0EAB21DBE17FC0075B80E /* PublicView */ = {
 			isa = PBXGroup;
 			children = (
-				F5316C5F1DCF1DD400AC9E6B /* XVideoplayView */,
 				F5A0EAB51DBE1DF40075B80E /* PlayControlBar.h */,
 				F5A0EAB61DBE1DF40075B80E /* PlayControlBar.m */,
 			);
@@ -356,7 +375,7 @@
 			files = (
 				F5FD67F71DBDEEBE002006AD /* LaunchScreen.storyboard in Resources */,
 				F5FD67F41DBDEEBE002006AD /* Assets.xcassets in Resources */,
-				F5316C611DCF1E5D00AC9E6B /* VideoView.xib in Resources */,
+				F5157E0C1DD5AFF1003FEAF2 /* VideoView.xib in Resources */,
 				F5A0EAB01DBE175B0075B80E /* podfile in Resources */,
 				F5A0EAAE1DBE17540075B80E /* podfile in Resources */,
 				F5FD67F21DBDEEBE002006AD /* Main.storyboard in Resources */,
@@ -432,11 +451,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F51379161DC5D013009A91F0 /* VideoView.m in Sources */,
 				F5FD67EF1DBDEEBE002006AD /* ViewController.m in Sources */,
+				F5157E0B1DD5AFF1003FEAF2 /* VideoView.m in Sources */,
 				F5FD67EC1DBDEEBE002006AD /* AppDelegate.m in Sources */,
 				F5FD67E91DBDEEBE002006AD /* main.m in Sources */,
 				F5D2FBB11DBF1D2A00F13123 /* Utils.m in Sources */,
+				F5157E0F1DD5C554003FEAF2 /* PlayerViewController.m in Sources */,
 				F5D80CC91DBE2D2600C7B845 /* UIView+Frame.m in Sources */,
 				F5A0EAB71DBE1DF40075B80E /* PlayControlBar.m in Sources */,
 			);
@@ -587,7 +607,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G237AHD53M;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XVRDemo/Frameworks",
+				);
 				INFOPLIST_FILE = XVRDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Wei.XVRDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -600,7 +626,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G237AHD53M;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XVRDemo/Frameworks",
+				);
 				INFOPLIST_FILE = XVRDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Wei.XVRDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

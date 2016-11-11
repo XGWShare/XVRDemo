@@ -10,7 +10,7 @@
         <scene sceneID="mqt-7M-Ume">
             <objects>
                 <navigationController id="fxl-hy-L3C" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gzn-rm-v4f">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gzn-rm-v4f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -35,12 +35,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxO-Ks-Vuf">
-                                <frame key="frameInset" minX="145" minY="318" width="85" height="30"/>
+                                <frame key="frameInset" minX="133" minY="318" width="109" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="播放器入口"/>
+                                <state key="normal" title="VR播放器入口"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="push" id="IDj-JV-fpu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTI-f0-Okc">
+                                <frame key="frameInset" minX="106" minY="356" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="rtmp视频直播入口"/>
+                                <connections>
+                                    <segue destination="O5f-aq-QON" kind="push" id="Z3h-UL-ov6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -51,6 +60,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HK6-1k-heS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-474.39999999999998" y="26.53673163418291"/>
+        </scene>
+        <!--Player View Controller-->
+        <scene sceneID="HWs-Vr-hXs">
+            <objects>
+                <viewController id="O5f-aq-QON" customClass="PlayerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wua-xY-5CP"/>
+                        <viewControllerLayoutGuide type="bottom" id="RJv-ky-4HF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kPN-rA-L08">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UuD-ch-lPp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bNw-Lq-X0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694" y="292"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -69,7 +97,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZT-Ws-YC0">
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入MP4格式URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Le7-RW-5Wu">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://120.25.246.21/vrMobile/travelVideo/zhejiang_xuanchuanpian.mp4" borderStyle="roundedRect" placeholder="输入MP4格式URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Le7-RW-5Wu">
                                         <frame key="frameInset" minX="8" minY="8" width="300" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
@@ -107,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="221.59999999999999" y="26.53673163418291"/>
+            <point key="canvasLocation" x="694" y="-462"/>
         </scene>
     </scenes>
 </document>

@@ -29,11 +29,15 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    //初始化播放器
-    CGRect frame = CGRectMake(0, 0, self.Playframe.frame.size.width, self.Playframe.frame.size.height);
-    VRVideoView = [VideoView videoPlayView];
-    [VRVideoView setFrame:frame];
-    [self.Playframe addSubview:VRVideoView];
+    double delayInSeconds = 0.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        //初始化播放器
+        CGRect frame = CGRectMake(0, 0, self.Playframe.frame.size.width, self.Playframe.frame.size.height);
+        VRVideoView = [VideoView videoPlayView];
+        [VRVideoView setFrame:frame];
+        [self.Playframe addSubview:VRVideoView];
+    });
     
 }
 

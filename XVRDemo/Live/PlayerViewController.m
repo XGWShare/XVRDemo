@@ -1,9 +1,9 @@
 //
-//  PlayerTableViewCell.h
-//  NOW
+//  AppDelegate.h
+//  XVRDemo
 //
-//  Created by ArJun on 16/8/7.
-//  Copyright © 2016年 ArJun. All rights reserved.
+//  Created by weige on 16/11/11.
+//  Copyright © 2016年 Wei. All rights reserved.
 //
 
 
